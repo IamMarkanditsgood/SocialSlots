@@ -42,6 +42,8 @@ namespace _Project.Scripts.Vegas
         
         public void StartSpin()
         {
+            PlayerPrefs.SetInt("Achievement1", 1);
+            PlayerPrefs.Save();
             if (_curBet > PlayerData.Amount.Value)
             {
                 return;

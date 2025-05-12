@@ -103,6 +103,7 @@ namespace _Project.Scripts.Bonanza
         
         public void StartSpin()
         {
+            PlayerPrefs.SetInt("Achievement1", 1);
             if (_curBet * (_curReels + 1)> PlayerData.Amount.Value)
             {
                 return;

@@ -157,7 +157,7 @@ public class MainMenu : MonoBehaviour
     {
         if (count > 9)
         {
-            PlayerPrefs.SetInt("bn3", 1);
+            PlayerPrefs.SetInt("Achievement2", 1);
             PlayerPrefs.Save();
         }
     }
@@ -200,6 +200,9 @@ public class MainMenu : MonoBehaviour
 
         if (i == 9)
         {
+            int games = PlayerPrefs.GetInt("Achievement6");
+            games++;
+            PlayerPrefs.SetInt("Achievement6", games);
             _panels[i].SetActive(true);
             _close.SetActive(true);
             _profile.SetActive(false);
@@ -219,6 +222,9 @@ public class MainMenu : MonoBehaviour
         }
         if (i == 8)
         {
+            int games = PlayerPrefs.GetInt("Achievement6");
+            games++;
+            PlayerPrefs.SetInt("Achievement6", games);
             _panels[i].SetActive(true);
             _close.SetActive(true);
             _profile.SetActive(false);
@@ -227,6 +233,9 @@ public class MainMenu : MonoBehaviour
         }
         if (i == 7)
         {
+            int games = PlayerPrefs.GetInt("Achievement6");
+            games++;
+            PlayerPrefs.SetInt("Achievement6", games);
             _panels[i].SetActive(true);
             _close.SetActive(true);
             _profile.SetActive(false);
@@ -235,6 +244,9 @@ public class MainMenu : MonoBehaviour
         }
         if (i == 6)
         {
+            int games = PlayerPrefs.GetInt("Achievement6");
+            games++;
+            PlayerPrefs.SetInt("Achievement6", games);
             _panels[i].SetActive(true);
             _close.SetActive(true);
             _profile.SetActive(false);
@@ -243,6 +255,10 @@ public class MainMenu : MonoBehaviour
         }
         if (i == 5)
         {
+            int games = PlayerPrefs.GetInt("Achievement6");
+            games++;
+            PlayerPrefs.SetInt("Achievement6", games);
+
             _panels[i].SetActive(true);
             _close.SetActive(true);
             _profile.SetActive(false);
@@ -252,6 +268,10 @@ public class MainMenu : MonoBehaviour
         _bottomPanels.SetActive(true);
         if (i == 4)
         {
+            int open = PlayerPrefs.GetInt("Achievement3");
+            open++;
+            PlayerPrefs.SetInt("Achievement3", open);
+            PlayerPrefs.Save();
             _panels[i].SetActive(true);
             return;
         }
@@ -259,20 +279,31 @@ public class MainMenu : MonoBehaviour
         {
             _panels[4].SetActive(false);
             _panels[i].SetActive(true);
-            var bn1 = PlayerPrefs.GetInt("bn1");
-            var bn2 = PlayerPrefs.GetString("bn2");
-            var bn3 = PlayerPrefs.GetInt("bn3");
-            var bn4 = PlayerPrefs.GetInt("bn4");
-            if (bn1 > 1000)
+            var bn1 = PlayerPrefs.GetInt("Achievement1");
+            var bn2 = PlayerPrefs.GetInt("Achievement2");
+            var bn3 = PlayerPrefs.GetInt("Achievement3");
+            var bn4 = PlayerPrefs.GetInt("Achievement4");
+            var bn5 = PlayerPrefs.GetInt("Achievement5");
+            var bn6 = PlayerPrefs.GetInt("Achievement6");
+            var bn7 = PlayerPrefs.GetInt("Achievement7");
+            var bn8 = PlayerPrefs.GetInt("Achievement8");
+            if (bn1 == 1)
                 _ach[0].alpha = 1;
-            if (ParseConverter.DecimalParse(bn2) >= 1000000)
+            if (bn2 >= 10)
                 _ach[1].alpha = 1;
-            if (bn3 == 1)
+            if (bn3 >= 5)
                 _ach[2].alpha = 1;
             if (bn4 == 1)
                 _ach[3].alpha = 1;
-            
-                
+            if (bn5 >= 20)
+                _ach[4].alpha = 1;
+            if (bn6 >= 5)
+                _ach[5].alpha = 1;
+            if (bn7 >= 7)
+                _ach[6].alpha = 1;
+            if (bn8 == 1)
+                _ach[7].alpha = 1;
+
             return;
         }
         foreach (var b in _buttons)

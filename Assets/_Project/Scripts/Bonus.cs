@@ -36,6 +36,10 @@ public class Bonus : MonoBehaviour
 
     public void GetBonus()
     {
+        int days = PlayerPrefs.GetInt("Achievement7");
+        PlayerPrefs.SetInt("Achievement7", days);
+        PlayerPrefs.Save();
+
         PlayerPrefs.SetString("Bonus", DateTime.Now.ToString());
         PlayerData.Amount.Value += 1500;
         PlayerPrefs.SetString("Coin", PlayerData.Amount.ToString());

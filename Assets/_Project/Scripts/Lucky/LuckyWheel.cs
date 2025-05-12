@@ -27,6 +27,13 @@ namespace _Project.Scripts.Lucky
         private List<decimal> kef = new List<decimal> {10, 20, 50, 100, 0, 0.5m, 1, 2, 5};
         public void Spin()
         {
+            int spins = PlayerPrefs.GetInt("Achievement5");
+            spins++;
+            PlayerPrefs.SetInt("Achievement5", spins);
+
+
+            PlayerPrefs.SetInt("Achievement1", 1);
+            PlayerPrefs.Save();
             _stopSpinButton.interactable = false;
             PlayerData.Amount.Value -= _curBet;
             StartCoroutine(RotateWheel());
@@ -60,6 +67,10 @@ namespace _Project.Scripts.Lucky
                 _luckyWheel.eulerAngles = new Vector3(0, 0, curAngle + startAngle);
             }
 
+            if (kef[s] >= 50)
+            {
+                PlayerPrefs.SetInt("Achievement4", 1);
+            }
             PlayerData.Amount.Value += _curBet * kef[s];
             
             _stopSpinButton.interactable = true;

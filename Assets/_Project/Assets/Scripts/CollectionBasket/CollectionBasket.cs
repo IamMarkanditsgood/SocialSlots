@@ -12,5 +12,9 @@ public class CollectionBasket : MonoBehaviour
         PlayerData.Amount.Value += amount;
         Debug.Log("Amount = "+ amount);
         Destroy(collision2D.gameObject);
+        if(multiplier >= 50)
+        {
+            PlayerPrefs.SetInt("Achievement4", 1);
+        }
     }
 }
