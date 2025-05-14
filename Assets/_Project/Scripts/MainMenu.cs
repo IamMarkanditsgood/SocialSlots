@@ -7,6 +7,7 @@ using System.Text;
 using _Project.Scripts;
 using _Project.Scripts.Helpers;
 using _Project.Scripts.Json;
+using Services.Ads;
 using TMPro;
 using UniRx;
 using UnityEngine;
@@ -39,6 +40,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject _bottomPanels;
     [SerializeField] private List<CanvasGroup> _ach;
     [SerializeField] private List<GameObject> _forPlinko;
+
+    private int CurrentScreen = -1;
 
     private async void Awake()
     {
@@ -211,6 +214,7 @@ public class MainMenu : MonoBehaviour
             {
                 plin.SetActive(false);
             }
+            CurrentScreen = i;
             return;
         }
         else
@@ -222,6 +226,7 @@ public class MainMenu : MonoBehaviour
         }
         if (i == 8)
         {
+
             int games = PlayerPrefs.GetInt("Achievement6");
             games++;
             PlayerPrefs.SetInt("Achievement6", games);
@@ -229,10 +234,12 @@ public class MainMenu : MonoBehaviour
             _close.SetActive(true);
             _profile.SetActive(false);
             _bottomPanels.SetActive(false);
+            CurrentScreen = i;
             return;
         }
         if (i == 7)
         {
+
             int games = PlayerPrefs.GetInt("Achievement6");
             games++;
             PlayerPrefs.SetInt("Achievement6", games);
@@ -240,10 +247,12 @@ public class MainMenu : MonoBehaviour
             _close.SetActive(true);
             _profile.SetActive(false);
             _bottomPanels.SetActive(false);
+            CurrentScreen = i;
             return;
         }
         if (i == 6)
         {
+
             int games = PlayerPrefs.GetInt("Achievement6");
             games++;
             PlayerPrefs.SetInt("Achievement6", games);
@@ -251,10 +260,12 @@ public class MainMenu : MonoBehaviour
             _close.SetActive(true);
             _profile.SetActive(false);
             _bottomPanels.SetActive(false);
+            CurrentScreen = i;
             return;
         }
         if (i == 5)
         {
+ 
             int games = PlayerPrefs.GetInt("Achievement6");
             games++;
             PlayerPrefs.SetInt("Achievement6", games);
@@ -263,20 +274,24 @@ public class MainMenu : MonoBehaviour
             _close.SetActive(true);
             _profile.SetActive(false);
             _bottomPanels.SetActive(false);
+            CurrentScreen = i;
             return;
         }
         _bottomPanels.SetActive(true);
         if (i == 4)
         {
+
             int open = PlayerPrefs.GetInt("Achievement3");
             open++;
             PlayerPrefs.SetInt("Achievement3", open);
             PlayerPrefs.Save();
             _panels[i].SetActive(true);
+            CurrentScreen = i;
             return;
         }
         if (i == 3)
         {
+  
             _panels[4].SetActive(false);
             _panels[i].SetActive(true);
             var bn1 = PlayerPrefs.GetInt("Achievement1");
@@ -303,7 +318,7 @@ public class MainMenu : MonoBehaviour
                 _ach[6].alpha = 1;
             if (bn8 == 1)
                 _ach[7].alpha = 1;
-
+            CurrentScreen = i;
             return;
         }
         foreach (var b in _buttons)
@@ -324,22 +339,33 @@ public class MainMenu : MonoBehaviour
         }
         if (i == 2)
         {
+            
             _bottomText[i].color = Color.yellow;
             _bottomText[i].fontStyle = FontStyles.Bold;
             _bonusPanel.OpenBonus();
+            CurrentScreen = i;
         }
         if(i == 1)
         {
+   
             _bottomText[i].color = Color.yellow;
             _bottomText[i].fontStyle = FontStyles.Bold;
+
+            if (CurrentScreen > 4)
+            {
+                AdsManager.instance.RewardedAds.ShowAd(AdRewardsType.None);
+            }
+            CurrentScreen = i;
         }
         
         if (i == 0)
         {
+
             _bottomText[i].color = Color.yellow;
             _bottomText[i].fontStyle = FontStyles.Bold;
             _panels[0].SetActive(true);
             _leaders.Show();
+            CurrentScreen = i;
         }
     }
 }
