@@ -1,9 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
 using _Project.Scripts;
 using _Project.Scripts.Helpers;
 using _Project.Scripts.Json;
@@ -353,7 +349,7 @@ public class MainMenu : MonoBehaviour
 
             if (CurrentScreen > 4)
             {
-                AdsManager.instance.RewardedAds.ShowAd(AdRewardsType.None);
+                AdsManager.instance.InterstitialAds.ShowAd();
             }
             CurrentScreen = i;
         }

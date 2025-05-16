@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: Spin Together
+  companyName: SpinTogether
   productName: SocialSlots
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -162,7 +162,8 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    iPhone: com.Spin-Together.SocialSlots
+    Android: com.SpinTogether.SocialSlots
+    iPhone: com.SpinTogether.SocialSlots
   buildNumber:
     Standalone: 0
     VisionOS: 0
@@ -759,7 +760,7 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Android: DOTWEEN
+    Android: DOTWEEN;LEVELPLAY_DEPENDENCIES_INSTALLED
     EmbeddedLinux: DOTWEEN
     GameCoreScarlett: DOTWEEN
     GameCoreXboxOne: DOTWEEN
@@ -873,7 +874,7 @@ PlayerSettings:
   cloudProjectId: 9580031f-0b40-4b81-819a-458171975917
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Spin Together
+  projectName: SpinTogether
   organizationId: info-onmyads-com
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0

@@ -12,7 +12,7 @@ namespace Services.Ads
 
         public InterstitialAds()
         {
-            _adID = (Application.platform == RuntimePlatform.IPhonePlayer) ? IOSAdID : AndroidAdID;
+            _adID = IOSAdID;
             LoadAd();
         }
 
@@ -26,7 +26,6 @@ namespace Services.Ads
         {
             Debug.Log($"Loading Ad:{_adID}");
             Advertisement.Show(_adID, this);
-            //_firebaseManager.InterstitialAd();
         }
 
         public void OnUnityAdsAdLoaded(string placementId)

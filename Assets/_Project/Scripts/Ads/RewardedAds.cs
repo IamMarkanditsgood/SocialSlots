@@ -1,7 +1,6 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Advertisements;
-using UnityEngine.Events;
 
 namespace Services.Ads
 {
