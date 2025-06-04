@@ -5,6 +5,7 @@ using System.Collections;
 
 public class Notifications : MonoBehaviour
 {
+    public GameObject view;
     public Button notifications;
     public Button later;
 
@@ -21,12 +22,12 @@ public class Notifications : MonoBehaviour
 
     private void NotificationsPressed()
     {
-        gameObject.SetActive(false);
+        view.SetActive(false);
         StartCoroutine(RequestAuthorization());
     }
     private void Later()
     {
-        gameObject.SetActive(false);
+        view.SetActive(false);
     }
     private IEnumerator RequestAuthorization()
     {
